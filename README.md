@@ -13,32 +13,15 @@ for form specifics.
 1.  Copy [zurb_form_builder.rb](https://github.com/ashleybye/zurb-form-builder/blob/master/app/helpers/zurb_form_builder.rb) into your project,
 in the following directory:
 
-  app/helpers
+        app/helpers
 
 2.  Ensure you are using the form builder in your form:
 
-  form_for @test, builder: ZurbFormBuilder do |f|
-    ...
-  end
+        form_for @test, builder: ZurbFormBuilder do |f|
+           ...
+        end
 
 3.  For usage, see comments in the [source code](https://github.com/ashleybye/zurb-form-builder/blob/master/app/helpers/zurb_form_builder.rb).
-
-1. Install Rails at the command prompt if you haven't yet:
-
-        gem install rails
-
-2. At the command prompt, create a new Rails application:
-
-        rails new myapp
-
-   where "myapp" is the application name.
-
-3. Change directory to `myapp` and start the web server:
-
-        cd myapp
-        rails server
-
-   Run with `--help` or `-h` for options.
 
 ## TODO
 
