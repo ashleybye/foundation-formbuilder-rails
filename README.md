@@ -52,15 +52,12 @@ Currently, I have only completed:
 
 ## Foundation Specific
 
+`check_box_group`
 `radio_button_group`
 
 # TODO
 
 I have the following left to implement:
-
-## Foundation Specific
-
-`check_box_group`
 
 ## FormOptionsHelper
 

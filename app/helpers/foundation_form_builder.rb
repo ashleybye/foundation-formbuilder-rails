@@ -6,10 +6,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   TODO
   =================================================
 
-  ===== Foundation Specific =====
-
-  check_box_group
-
   ====== FormOptionsHelper =====
 
   collection_check_boxes,
@@ -71,6 +67,42 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
         options[:label])
 
     errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Used to group a collection of check boxes together under one labelled heading. The overall label
+  # name is determined by the method name or by specifying it explicitly in the :label options hash.
+  # Each check box and its corresponding label is specified in a hash passed to tag_values, as
+  # label: [checked_value, unchecked_value], with the any default checked values being specified in the
+  # default options array. The options hash will be applied to radio button fields and labels only.
+  # Full usage is similar to that of radio_button_group.
+  #
+  #   f.zurb_check_box_group :check_box_group, { yes: [true, false], no: [false, true] }, [:yes]
+  #   # => <label for="test">Check box group</label>
+  #         <input checked="checked" id="test_check_box_group" name="test[check_box_group]" value="true" type="checkbox">
+  #         <label for="test">Yes</label>
+  #         <input name="test[check_box_group]" value="true" type="hidden">
+  #         <input id="test_check_box_group" name="test[check_box_group]" value="false" type="checkbox">
+  #         <label for="test">No</label>
+  def zurb_check_box_group(method, tag_values, checked = [], options = { label: {}, field: {} })
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+
+      # Iterate through check boxes hash and check to see what values should be set as checked in
+      # the checked array and adding each check box to @field
+      tag_values.each do |tag_name, checked_unchecked_values|
+        options[:field][:checked] = true if checked.include?(tag_name)
+        field << @template.check_box(@object_name, method, options[:field], checked_unchecked_values[0],
+          checked_unchecked_values[1]) +
+          @template.label_tag(@object_name, "#{tag_name.to_s.humanize}".html_safe,
+            options[:label])
+        options[:field][:checked] = nil # Reset checked as options is directly modified for all values
+      end
+
+      errors.any? ? add_error_message(field, errors) : field
   end
 
   # Returns a color_field with a label wrapped around it and an error label if an error in validation. The
