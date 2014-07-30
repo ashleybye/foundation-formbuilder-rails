@@ -6,9 +6,10 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   TODO
   =================================================
 
-  ===== FormHelper =====
+  ===== Foundation Specific =====
 
-  radio_button
+  check_box_group
+  radio_button_group
 
   ====== FormOptionsHelper =====
 
@@ -61,7 +62,7 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   #         <input checked="checked" id="test_check_box" name="test[check_box]" value="1" type="checkbox">
   #         <label for="test">Check box</label>
 
-  def zurb_check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+  def zurb_check_box(method, options = { label: {}, field: {} }, checked_value = "1", unchecked_value = "0")
     set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
     errors = get_field_errors(method)
     add_error_class_to(options) if errors.any?
@@ -274,6 +275,28 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
           #{@template.phone_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a single radio_button with a label wrapped around it and an error label if an error in validation.
+  # The options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  # It is very unlikely that this will be used on its own. Ever! Possibly remove?
+  #
+  #   f.zurb_radio_button :radio_button, :yes
+  #   # => <input id="test_radio_button_yes" name="test[radio_button]" value="yes" type="radio">
+  #         <label for="test">Radio button</label>
+
+  def zurb_radio_button(method, tag_value, options = { label: {}, field: {} })
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.radio_button(@object_name, method, tag_value, options[:field]) +
+      @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}".html_safe,
+        options[:label])
 
     errors.any? ? add_error_message(field, errors) : field
   end

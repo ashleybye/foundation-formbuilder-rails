@@ -27,6 +27,8 @@ in the following directory:
 
 Currently, I have only completed:
 
+## FormHelper
+
 `check_box`
 `color_field`
 `date_field`
@@ -38,7 +40,7 @@ Currently, I have only completed:
 `number_field`
 `password_field`
 `phone_field`
-
+`radio_button`
 `range_field`
 `search_field`
 `telephone_field`
@@ -50,9 +52,7 @@ Currently, I have only completed:
 
 # TODO
 
-## FormHelper
-
-`radio_button`
+I have the following left to implement:
 
 ## Foundation Specific
 
