@@ -27,9 +27,11 @@ in the following directory:
 
 Currently, I have only completed:
 
+`color_field`
 `date_field`
 `datetime_field`
 `datetime_local_field`
+`email_field`
 `text_field`
 `text_area`
 `password_field`
@@ -39,8 +41,6 @@ Currently, I have only completed:
 ## FormHelper
 
 `check_box`
-`color_field`
-`email_field`
 `file_field`
 `month_field`
 `number_field`
