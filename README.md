@@ -27,31 +27,37 @@ in the following directory:
 
 Currently, I have only completed:
 
-`date_field`
-`datetime_field`
-`text_field`
-`text_area`
-`password_field`
-
-# TODO
-
 ## FormHelper
 
 `check_box`
 `color_field`
+`date_field`
+`datetime_field`
 `datetime_local_field`
 `email_field`
 `file_field`
 `month_field`
 `number_field`
+`password_field`
 `phone_field`
 `radio_button`
 `range_field`
 `search_field`
 `telephone_field`
 `time_field`
+`text_field`
+`text_area`
 `url_field`
 `week_field`
+
+# TODO
+
+I have the following left to implement:
+
+## Foundation Specific
+
+`check_box_group`
+`radio_button_group`
 
 ## FormOptionsHelper
 
