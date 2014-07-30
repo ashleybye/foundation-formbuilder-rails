@@ -1,5 +1,55 @@
 class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
+=begin
+
+  =================================================
+  TODO
+  =================================================
+
+  ===== FormHelper =====
+
+  check_box
+  color_field
+  date_field
+  datetime_field,
+  datetime_local_field
+  email_field
+  fields_for
+  file_field
+  form_for
+  hidden_field
+  label
+  month_field
+  number_field
+  phone_field
+  radio_button
+  range_field
+  search_field
+  telephone_field
+  time_field
+  url_field
+  week_field
+
+  ====== FormOptionsHelper =====
+
+  collection_check_boxes,
+  collection_radio_buttons,
+  collection_select
+  grouped_collection_select,
+  grouped_options_for_select
+  option_groups_from_collection_for_select,
+  options_for_select,
+  options_from_collection_for_select
+  select
+  time_zone_options_for_select,
+  time_zone_select
+
+  ????? Pre/Postfix labels (Foundation) ?????
+  ????? Switches (Foundation) ?????
+  ????? Abide Validation (Foundaation) ?????
+
+=end
+
   ERROR_CSS_CLASS = :error
 
   # A custom FormBuilder to provide forms marked up to work with the Foundation 5 CSS framework.
