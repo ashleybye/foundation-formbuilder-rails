@@ -9,7 +9,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   ===== FormHelper =====
 
   check_box
-  number_field
   phone_field
   radio_button
   range_field
@@ -194,6 +193,26 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.month_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a number_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_number_field :number_field
+  #   # => <label for="test">Number field<input id="test_number_field" name="test[number_field]" type="number"></label>
+  def zurb_number_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.number_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 
