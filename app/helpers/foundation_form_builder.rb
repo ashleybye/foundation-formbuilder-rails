@@ -10,7 +10,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
   check_box
   color_field
-  date_field
   datetime_field,
   datetime_local_field
   email_field
@@ -66,6 +65,26 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   #   form_for @test, builder: ZurbFormBuilder do |f|
   #     ...
   #   end
+
+  # Returns a date_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_date_field :date_field
+  #   # => <label for="test">Date field<input id="test_date_field" name="test[date_field]" type="date"></label>
+  def zurb_date_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.date_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
 
   # Returns a text_field with a label wrapped around it and an error label if an error in validation. The
   # options hash can be used to further customise the label and field, but specific options must be

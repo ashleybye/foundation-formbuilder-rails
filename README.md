@@ -27,9 +27,10 @@ in the following directory:
 
 Complete FormBuilder for all form objects. Currently, I have only done:
 
-1.  `text_field`
-2.  `text_area`
-3.  `password_field`
+`date_field`
+`text_field`
+`text_area`
+`password_field`
 
 ## TODO
 
@@ -37,7 +38,6 @@ Complete FormBuilder for all form objects. Currently, I have only done:
 
 `check_box`
 `color_field`
-`date_field`
 `datetime_field`
 `datetime_local_field`
 `email_field`
