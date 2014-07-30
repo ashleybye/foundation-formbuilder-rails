@@ -23,6 +23,23 @@ in the following directory:
 
 3.  For usage, see comments in the [source code](https://github.com/ashleybye/zurb-form-builder/blob/master/app/helpers/zurb_form_builder.rb).
 
+1. Install Rails at the command prompt if you haven't yet:
+
+        gem install rails
+
+2. At the command prompt, create a new Rails application:
+
+        rails new myapp
+
+   where "myapp" is the application name.
+
+3. Change directory to `myapp` and start the web server:
+
+        cd myapp
+        rails server
+
+   Run with `--help` or `-h` for options.
+
 ## TODO
 
 Complete form build for all form objects. Currently, I have only done:
