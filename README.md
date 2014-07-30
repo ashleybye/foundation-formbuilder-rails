@@ -29,6 +29,7 @@ Currently, I have only completed:
 
 `date_field`
 `datetime_field`
+`datetime_local_field`
 `text_field`
 `text_area`
 `password_field`
@@ -39,7 +40,6 @@ Currently, I have only completed:
 
 `check_box`
 `color_field`
-`datetime_local_field`
 `email_field`
 `file_field`
 `month_field`
