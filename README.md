@@ -39,6 +39,7 @@ Currently, I have only completed:
 `phone_field`
 `range_field`
 `search_field`
+`telephone_field`
 
 `text_field`
 `text_area`
@@ -49,7 +50,6 @@ Currently, I have only completed:
 
 `check_box`
 `radio_button`
-`telephone_field`
 `time_field`
 `url_field`
 `week_field`
