@@ -1,4 +1,4 @@
-## ZurbFormBuilder
+## Foundation FormBuilder
 
 This is a custom FormBuilder used to display form elements generated
 by the form_for helpers in the correct style for

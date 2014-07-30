@@ -1,4 +1,4 @@
-class ZurbFormBuilder < ActionView::Helpers::FormBuilder
+class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
   ERROR_CSS_CLASS = :error
 
