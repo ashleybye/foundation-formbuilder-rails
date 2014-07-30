@@ -10,18 +10,18 @@ for form specifics.
 
 ## Getting Started
 
-1.  Copy [zurb_form_builder.rb](https://github.com/ashleybye/zurb-form-builder/blob/master/app/helpers/zurb_form_builder.rb) into your project,
+1.  Copy [foundation_form_builder.rb](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb) into your project,
 in the following directory:
 
         app/helpers
 
 2.  Ensure you are using the FormBuilder in your form:
 
-        form_for @test, builder: ZurbFormBuilder do |f|
+        form_for @test, builder: FoundationFormBuilder do |f|
            ...
         end
 
-3.  For usage, see comments in the [source code](https://github.com/ashleybye/zurb-form-builder/blob/master/app/helpers/zurb_form_builder.rb).
+3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb).
 
 ## TODO
 
