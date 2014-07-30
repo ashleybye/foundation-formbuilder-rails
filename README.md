@@ -1,4 +1,4 @@
-## Foundation FormBuilder
+# Foundation FormBuilder
 
 This is a custom FormBuilder used to display form elements generated
 by the form_for helpers in the correct style for
@@ -8,7 +8,7 @@ the [*Foundation 5 Framework*](http://foundation.zurb.com/).
 See the Foundation [docs](http://foundation.zurb.com/docs/components/forms.html)
 for form specifics.
 
-## Getting Started
+# Getting Started
 
 1.  Copy [foundation_form_builder.rb](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb) into your project,
 in the following directory:
@@ -23,18 +23,18 @@ in the following directory:
 
 3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb).
 
-## Complete
+# Complete
 
-Complete FormBuilder for all form objects. Currently, I have only done:
+Currently, I have only completed:
 
 `date_field`
 `text_field`
 `text_area`
 `password_field`
 
-## TODO
+# TODO
 
-# FormHelper
+## FormHelper
 
 `check_box`
 `color_field`
@@ -53,7 +53,7 @@ Complete FormBuilder for all form objects. Currently, I have only done:
 `url_field`
 `week_field`
 
-# FormOptionsHelper
+## FormOptionsHelper
 
 `collection_check_boxes`
 `collection_radio_buttons`
@@ -67,7 +67,7 @@ Complete FormBuilder for all form objects. Currently, I have only done:
 `time_zone_options_for_select`
 `time_zone_select`
 
-# Under consideration
+## Under consideration
 
 `Pre/Postfix labels (Foundation)`
 `Switches (Foundation)`
