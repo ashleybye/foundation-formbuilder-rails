@@ -9,7 +9,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   ===== FormHelper =====
 
   check_box
-  month_field
   number_field
   phone_field
   radio_button
@@ -71,26 +70,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.color_field(@object_name, method, options[:field])}".html_safe,
-      options[:label]
-    )
-
-    errors.any? ? add_error_message(field, errors) : field
-  end
-
-  # Returns a file_field with a label wrapped around it and an error label if an error in validation. The
-  # options hash can be used to further customise the label and field, but specific options must be
-  # provided in a hash for that element.
-  #
-  #   f.zurb_file_field :file_field
-  #   # => <label for="test">File field<input id="test_file_field" name="test[file_field]" type="file"></label>
-  def zurb_file_field(method, options = { label: {}, field: {} }) 
-    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
-    errors = get_field_errors(method)
-    add_error_class_to(options) if errors.any?
-
-    field = @template.label_tag(@object_name,
-      "#{options[:label][:label] || method.to_s.humanize}
-          #{@template.file_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 
@@ -174,6 +153,47 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.email_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a file_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_file_field :file_field
+  #   # => <label for="test">File field<input id="test_file_field" name="test[file_field]" type="file"></label>
+  def zurb_file_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.file_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+
+  # Returns a month_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_month_field :month_field
+  #   # => <label for="test">Month field<input id="test_month_field" name="test[month_field]" type="month"></label>
+  def zurb_month_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.month_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 
