@@ -50,6 +50,10 @@ Currently, I have only completed:
 `url_field`
 `week_field`
 
+## Foundation Specific
+
+`radio_button_group`
+
 # TODO
 
 I have the following left to implement:
@@ -57,7 +61,6 @@ I have the following left to implement:
 ## Foundation Specific
 
 `check_box_group`
-`radio_button_group`
 
 ## FormOptionsHelper
 
