@@ -27,6 +27,7 @@ in the following directory:
 
 Currently, I have only completed:
 
+
 `color_field`
 `date_field`
 `datetime_field`
@@ -37,10 +38,11 @@ Currently, I have only completed:
 `number_field`
 `password_field`
 `phone_field`
+
 `range_field`
 `search_field`
 `telephone_field`
-
+`time_field`
 `text_field`
 `text_area`
 
@@ -50,7 +52,6 @@ Currently, I have only completed:
 
 `check_box`
 `radio_button`
-`time_field`
 `url_field`
 `week_field`
 
