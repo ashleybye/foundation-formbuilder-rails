@@ -32,6 +32,7 @@ Currently, I have only completed:
 `datetime_field`
 `datetime_local_field`
 `email_field`
+`file_field`
 `text_field`
 `text_area`
 `password_field`
@@ -41,7 +42,6 @@ Currently, I have only completed:
 ## FormHelper
 
 `check_box`
-`file_field`
 `month_field`
 `number_field`
 `phone_field`
