@@ -35,11 +35,12 @@ Currently, I have only completed:
 `file_field`
 `month_field`
 `number_field`
+`password_field`
 `phone_field`
+`range_field`
 
 `text_field`
 `text_area`
-`password_field`
 
 # TODO
 
@@ -47,7 +48,6 @@ Currently, I have only completed:
 
 `check_box`
 `radio_button`
-`range_field`
 `search_field`
 `telephone_field`
 `time_field`

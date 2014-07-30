@@ -10,7 +10,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
   check_box
   radio_button
-  range_field
   search_field
   telephone_field
   time_field
@@ -218,6 +217,27 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     errors.any? ? add_error_message(field, errors) : field
   end
 
+  # Returns a text_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_password_field :password_field
+  #   # => <label for="test">Password field
+  #       <input id="test_password_field" name="test[password_field]" type="password"></label>
+  def zurb_password_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.password_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
   # Returns a phone_field with a label wrapped around it and an error label if an error in validation. The
   # options hash can be used to further customise the label and field, but specific options must be
   # provided in a hash for that element.
@@ -232,6 +252,47 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.phone_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a range_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_range_field :range_field
+  #   # => <label for="test">Range field<input id="test_range_field" name="test[range_field]" type="range"></label>
+  def zurb_range_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.range_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a text_area with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_text_area :text_area, field: { rows: 5 }
+  #   # => <label for="test">Text area
+  #       <textarea id="test_text_area" name="test[text_area]" rows="5"></textarea></label>
+  def zurb_text_area(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.text_area(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 
@@ -264,48 +325,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.text_field(@object_name, method, options[:field])}".html_safe,
-      options[:label]
-    )
-
-    errors.any? ? add_error_message(field, errors) : field
-  end
-
-  # Returns a text_area with a label wrapped around it and an error label if an error in validation. The
-  # options hash can be used to further customise the label and field, but specific options must be
-  # provided in a hash for that element.
-  #
-  #   f.zurb_text_area :text_area, field: { rows: 5 }
-  #   # => <label for="test">Text area
-  #       <textarea id="test_text_area" name="test[text_area]" rows="5"></textarea></label>
-  def zurb_text_area(method, options = { label: {}, field: {} }) 
-    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
-    errors = get_field_errors(method)
-    add_error_class_to(options) if errors.any?
-
-    field = @template.label_tag(@object_name,
-      "#{options[:label][:label] || method.to_s.humanize}
-          #{@template.text_area(@object_name, method, options[:field])}".html_safe,
-      options[:label]
-    )
-
-    errors.any? ? add_error_message(field, errors) : field
-  end
-
-  # Returns a text_field with a label wrapped around it and an error label if an error in validation. The
-  # options hash can be used to further customise the label and field, but specific options must be
-  # provided in a hash for that element.
-  #
-  #   f.zurb_password_field :password_field
-  #   # => <label for="test">Password field
-  #       <input id="test_password_field" name="test[password_field]" type="password"></label>
-  def zurb_password_field(method, options = { label: {}, field: {} }) 
-    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
-    errors = get_field_errors(method)
-    add_error_class_to(options) if errors.any?
-
-    field = @template.label_tag(@object_name,
-      "#{options[:label][:label] || method.to_s.humanize}
-          #{@template.password_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 
