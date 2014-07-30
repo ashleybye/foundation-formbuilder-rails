@@ -52,20 +52,23 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   # provided in a hash for that element.
   #
   #   f.zurb_check_box :check_box
-  #   # => <label for="test">Check box
-  #           <input name="test[check_box]" value="0" type="hidden">
-  #           <input id="test_check_box" name="test[check_box]" value="1" type="checkbox">
-  #         </label>
+  #   # => <input name="test[check_box]" value="0" type="hidden">
+  #         <input id="test_check_box" name="test[check_box]" value="1" type="checkbox">
+  #         <label for="test">Check box</label>
+  #
+  #   f.zurb_check_box :check_box, field: { checked: true }
+  #   # => <input name="test[check_box]" value="0" type="hidden">
+  #         <input checked="checked" id="test_check_box" name="test[check_box]" value="1" type="checkbox">
+  #         <label for="test">Check box</label>
+
   def zurb_check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
     set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
     errors = get_field_errors(method)
     add_error_class_to(options) if errors.any?
 
-    field = @template.label_tag(@object_name,
-      "#{options[:label][:label] || method.to_s.humanize}
-          #{@template.check_box(@object_name, method, options[:field])}".html_safe,
-      options[:label]
-    )
+    field = @template.check_box(@object_name, method, options[:field], checked_value, unchecked_value) +
+      @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}".html_safe,
+        options[:label])
 
     errors.any? ? add_error_message(field, errors) : field
   end
