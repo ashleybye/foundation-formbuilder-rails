@@ -35,6 +35,7 @@ Currently, I have only completed:
 `file_field`
 `month_field`
 `number_field`
+`phone_field`
 
 `text_field`
 `text_area`
@@ -45,7 +46,6 @@ Currently, I have only completed:
 ## FormHelper
 
 `check_box`
-`phone_field`
 `radio_button`
 `range_field`
 `search_field`
