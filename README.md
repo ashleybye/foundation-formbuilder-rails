@@ -27,7 +27,7 @@ in the following directory:
 
 Currently, I have only completed:
 
-
+`check_box`
 `color_field`
 `date_field`
 `datetime_field`
@@ -52,7 +52,6 @@ Currently, I have only completed:
 
 ## FormHelper
 
-`check_box`
 `radio_button`
 
 ## Foundation Specific

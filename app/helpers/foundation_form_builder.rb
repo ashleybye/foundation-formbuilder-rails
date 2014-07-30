@@ -8,7 +8,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
   ===== FormHelper =====
 
-  check_box
   radio_button
 
   ====== FormOptionsHelper =====
@@ -47,6 +46,29 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   #   form_for @test, builder: ZurbFormBuilder do |f|
   #     ...
   #   end
+
+  # Returns a single check_box with a label wrapped around it and an error label if an error in validation.
+  # The options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_check_box :check_box
+  #   # => <label for="test">Check box
+  #           <input name="test[check_box]" value="0" type="hidden">
+  #           <input id="test_check_box" name="test[check_box]" value="1" type="checkbox">
+  #         </label>
+  def zurb_check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.check_box(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
 
   # Returns a color_field with a label wrapped around it and an error label if an error in validation. The
   # options hash can be used to further customise the label and field, but specific options must be
