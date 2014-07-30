@@ -10,8 +10,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
   check_box
   radio_button
-  url_field
-  week_field
 
   ====== FormOptionsHelper =====
 
@@ -382,6 +380,46 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     field = @template.label_tag(@object_name,
       "#{options[:label][:label] || method.to_s.humanize}
           #{@template.text_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a url_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_url_field :url_field
+  #   # => <label for="test">Url field<input id="test_url_field" name="test[url_field]" type="url"></label>
+  def zurb_url_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.url_field(@object_name, method, options[:field])}".html_safe,
+      options[:label]
+    )
+
+    errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Returns a week_field with a label wrapped around it and an error label if an error in validation. The
+  # options hash can be used to further customise the label and field, but specific options must be
+  # provided in a hash for that element.
+  #
+  #   f.zurb_week_field :week_field
+  #   # => <label for="test">Week field<input id="test_week_field" name="test[week_field]" type="week"></label>
+  def zurb_week_field(method, options = { label: {}, field: {} }) 
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+    errors = get_field_errors(method)
+    add_error_class_to(options) if errors.any?
+
+    field = @template.label_tag(@object_name,
+      "#{options[:label][:label] || method.to_s.humanize}
+          #{@template.week_field(@object_name, method, options[:field])}".html_safe,
       options[:label]
     )
 

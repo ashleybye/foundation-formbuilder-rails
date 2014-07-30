@@ -45,6 +45,8 @@ Currently, I have only completed:
 `time_field`
 `text_field`
 `text_area`
+`url_field`
+`week_field`
 
 # TODO
 
@@ -52,8 +54,11 @@ Currently, I have only completed:
 
 `check_box`
 `radio_button`
-`url_field`
-`week_field`
+
+## Foundation Specific
+
+`check_box_group`
+`radio_button_group`
 
 ## FormOptionsHelper
 
