@@ -9,7 +9,6 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   ===== Foundation Specific =====
 
   check_box_group
-  radio_button_group
 
   ====== FormOptionsHelper =====
 
@@ -299,6 +298,52 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
         options[:label])
 
     errors.any? ? add_error_message(field, errors) : field
+  end
+
+  # Used to group a collection of radio buttons together under one labelled heading. The overall label
+  # name is determined by the method name or by specifying it explicitly in the :label options hash.
+  # Each radio button and its corresponding label is specified in a hash passed to tag_values, as
+  # label: :value, with the default radio button value being specified in the default option.
+  # The options hash will be applied to radio button fields and labels only.
+  #
+  #   f.zurb_radio_button_group :radio_button_group, {yes: true, no: false
+  #   # => <label for="test">Radio button group</label>
+  #         <input id="test_radio_button_group_true" name="test[radio_button_group]" value="true" type="radio">
+  #         <label for="test">Yes</label>
+  #         <input id="test_radio_button_group_false" name="test[radio_button_group]" value="false" type="radio">
+  #         <label for="test">No</label>
+  #
+  #   f.zurb_radio_button_group :radio_button_group, {yes: true, no: false}, false
+  #   # => <label for="test">Radio button group</label>
+  #         <input id="test_radio_button_group_true" name="test[radio_button_group]" value="true" type="radio">
+  #         <label for="test">Yes</label>
+  #         <input checked="checked" id="test_radio_button_group_false" name="test[radio_button_group]" value="false" type="radio">
+  #         <label for="test">No</label>
+  #
+  #   f.zurb_radio_button_group :text_field, {yes: true, no: false}, false,
+  #     label: { label: "Giant chicken?" }
+  #   # => <label for="test" label="Giant chicken?">Giant chicken?</label>
+  #         <input id="test_text_field_true" name="test[text_field]" value="true" type="radio">
+  #         <label for="test" label="Giant chicken?">Yes</label>
+  #         <input checked="checked" id="test_text_field_false" name="test[text_field]" value="false" type="radio">
+  #         <label for="test" label="Giant chicken?">No</label>
+  def zurb_radio_button_group(method, tag_values, default = nil, options = { label: {}, field: {} })
+    set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+
+      # Iterate through radio buttons hash and check to see what value should be set as the default
+      # adding each radio button to @field
+      tag_values.each do |tag_name, tag_value|
+        options[:field][:checked] = true if tag_value == default
+        field << @template.radio_button(@object_name, method, tag_value, options[:field]) +
+        @template.label_tag(@object_name, tag_name.to_s.capitalize, options[:label])
+      end
+
+      errors.any? ? add_error_message(field, errors) : field
   end
 
   # Returns a range_field with a label wrapped around it and an error label if an error in validation. The
