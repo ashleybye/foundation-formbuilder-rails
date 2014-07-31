@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ashleybye/foundation-formbuilder-rails.git
-  revision: f48120ce82dbb331988490cf6678086cabaf6f11
+  revision: a8d72f092397b63f75ac5ed19d983fdb46e2ea86
   branch: develop
   specs:
     foundation-formbuilder-rails (0.2.0)

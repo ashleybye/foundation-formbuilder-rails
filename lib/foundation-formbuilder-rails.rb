@@ -1,1 +1,1 @@
-require 'foundation/formbuilder'
+require 'foundation/form_builder'
