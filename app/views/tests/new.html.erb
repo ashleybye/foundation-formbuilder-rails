@@ -1,4 +1,4 @@
-<%= form_for @continent, builder: Zurb::FoundationFormBuilder do |f| %>
+<%= form_for @continent, builder: Foundation::FormBuilder::Rails::FormBuilder do |f| %>
 
   <%= @continent.errors.full_messages if @continent.errors.any? %>
 
