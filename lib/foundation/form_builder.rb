@@ -1,1 +1,1 @@
-require 'foundation/form_builder'
+require 'foundation/form_builder/rails'
