@@ -52,8 +52,13 @@ Currently, I have only completed:
 
 ## Foundation Specific
 
+(May be removed at a later stage)
 `check_box_group`
 `radio_button_group`
+
+## FormOptionsHelper
+
+`collection_check_boxes`
 
 # TODO
 
@@ -61,7 +66,6 @@ I have the following left to implement:
 
 ## FormOptionsHelper
 
-`collection_check_boxes`
 `collection_radio_buttons`
 `collection_select`
 `grouped_collection_select`
