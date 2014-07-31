@@ -9,7 +9,6 @@ module Zurb
 
   ====== FormOptionsHelper =====
 
-  grouped_collection_select
   grouped_options_for_select
   option_groups_from_collection_for_select
   options_for_select
@@ -267,6 +266,24 @@ module Zurb
 
       errors.any? ? add_error_message(field, errors) : field
     end
+
+    # Works in exactly the same way as the standard collection_radio_buttons method
+    def zurb_grouped_collection_select(method, collection, group_method, group_label_method,
+      option_key_method, option_value_method, options = {}, html_options = {})
+      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+      field << @template.grouped_collection_select(@object_name, method, collection, group_method,
+        group_label_method, option_key_method, option_value_method, objectify_options(options),
+        @default_options.merge(html_options))
+
+      errors.any? ? add_error_message(field, errors) : field
+    end
+
+
 
 
     # Returns a month_field with a label wrapped around it and an error label if an error in validation. The

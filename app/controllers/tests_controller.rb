@@ -1,11 +1,13 @@
 class TestsController < ApplicationController
   def new
-    @test = Test.new
+    @city = City.new
+    @continents = Continent.all
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.valid?
+    @city = City.new(test_params)
+    @continents = Continent.all
+    @city.valid?
     render :new
   end
 

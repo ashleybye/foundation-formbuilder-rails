@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731064119) do
+ActiveRecord::Schema.define(version: 20140731082854) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["country_id"], name: "index_cities_on_country_id"
+
+  create_table "continents", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.integer  "continent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "countries", ["continent_id"], name: "index_countries_on_continent_id"
 
   create_table "fields", force: true do |t|
     t.string   "name"

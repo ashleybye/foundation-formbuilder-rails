@@ -1,8 +1,8 @@
-<%= form_for @test, builder: Zurb::FoundationFormBuilder do |f| %>
+<%= form_for @city, builder: Zurb::FoundationFormBuilder do |f| %>
 
-  <%= @test.errors.full_messages if @test.errors.any? %>
+  <%= @city.errors.full_messages if @city.errors.any? %>
 
-  <%= f.zurb_collection_select(:text_field, Field.all, :id, :name) %>
+  <%= f.zurb_grouped_collection_select :country_id, @continents, :countries, :name, :id, :name %>
 
 
 
