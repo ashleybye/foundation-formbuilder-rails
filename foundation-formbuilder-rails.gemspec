@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Foundation::FormBuilder::Rails::VERSION
   spec.authors       = ["Ashley Bye"]
   spec.email         = ["ashley.bye85@gmail.com"]
-  spec.description   = %q{FormBuilder for the ZURB Foundation 5 CSS Framework}
   spec.summary       = %q{FormBuilder for the ZURB Foundation 5 CSS Framework}
+  spec.description   = File.read(File.join(File.dirname(__FILE__), 'README.md'))
   spec.homepage      = "https://github.com/ashleybye/foundation-formbuilder-rails"
   spec.license       = "MIT"
 
@@ -17,6 +17,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = Dir["test/**/*.rb"]
   spec.require_paths = ["lib"]
 
+  spec.required_ruby_version = ">= 2.1.2"
   spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_dependency "foundation-rails", "~> 5.3", ">= 5.3.0.1"
 end
