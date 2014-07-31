@@ -9,12 +9,6 @@ module Zurb
 
   ====== FormOptionsHelper =====
 
-  grouped_options_for_select
-  option_groups_from_collection_for_select
-  options_for_select
-  options_from_collection_for_select
-  select
-  time_zone_options_for_select
   time_zone_select
 
   ????? Pre/Postfix labels (Foundation) ?????
@@ -267,7 +261,7 @@ module Zurb
       errors.any? ? add_error_message(field, errors) : field
     end
 
-    # Works in exactly the same way as the standard collection_radio_buttons method
+    # Works in exactly the same way as the standard grouped_collection_select method
     def zurb_grouped_collection_select(method, collection, group_method, group_label_method,
       option_key_method, option_value_method, options = {}, html_options = {})
       set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
@@ -471,6 +465,26 @@ module Zurb
             #{@template.search_field(@object_name, method, options[:field])}".html_safe,
         options[:label]
       )
+
+      errors.any? ? add_error_message(field, errors) : field
+    end
+
+    # Works in exactly the same way as the standard select method
+    #
+    #   f.zurb_select :id, Continent.all.collect { |c| [c.name, c.id] }, {include_blank: true, label: {label:"Test"}}
+    #   # => <label for="continent" label="Test">Test</label>
+    #          <select id="continent_id" name="continent[id]">
+    #          <option value=""></option>
+    #          <option value="1">Europe</option>
+    #          <option value="2">Asia</option></select>
+    def zurb_select(method, choices = nil, options = { label = {}, field ={} }, html_options = {}, &block)
+      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+      field << @template.select(@object_name, method, choices, options, html_options, &block)
 
       errors.any? ? add_error_message(field, errors) : field
     end
