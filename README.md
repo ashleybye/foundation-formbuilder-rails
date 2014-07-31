@@ -1,4 +1,4 @@
-# Foundation FormBuilder
+# Foundation FormBuilder v0.2.0
 
 This is a custom FormBuilder used to display form elements generated
 by the form_for helpers in the correct style for
