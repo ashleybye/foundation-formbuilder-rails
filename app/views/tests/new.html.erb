@@ -2,9 +2,7 @@
 
   <%= @test.errors.full_messages if @test.errors.any? %>
 
-  <%= f.zurb_collection_check_boxes(:text_field, Field.all, :id, :name) do |b|
-    b.label(:"data-value" => b.value) { b.check_box + b.text }
-    end%>
+  <%= f.zurb_collection_radio_buttons(:text_field, Field.all, :id, :name) %>
 
 
 
