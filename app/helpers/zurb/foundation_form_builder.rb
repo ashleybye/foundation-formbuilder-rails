@@ -9,7 +9,6 @@ module Zurb
 
   ====== FormOptionsHelper =====
 
-  collection_radio_buttons
   collection_select
   grouped_collection_select
   grouped_options_for_select
@@ -114,6 +113,20 @@ module Zurb
       field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
         options[:label])
       field << @template.collection_check_boxes(@object_name, method, collection, value_method, text_method,
+        objectify_options(options[:field]), @default_options.merge(html_options), &block)
+
+      errors.any? ? add_error_message(field, errors) : field
+    end
+
+    # Works in exactly the same way as the standard collection_radio_buttons method
+    def zurb_collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block) 
+      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+      field << @template.collection_radio_buttons(@object_name, method, collection, value_method, text_method,
         objectify_options(options[:field]), @default_options.merge(html_options), &block)
 
       errors.any? ? add_error_message(field, errors) : field

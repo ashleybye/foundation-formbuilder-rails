@@ -59,6 +59,7 @@ Currently, I have only completed:
 ## FormOptionsHelper
 
 `collection_check_boxes`
+`collection_radio_buttons`
 
 # TODO
 
@@ -66,7 +67,6 @@ I have the following left to implement:
 
 ## FormOptionsHelper
 
-`collection_radio_buttons`
 `collection_select`
 `grouped_collection_select`
 `grouped_options_for_select`
