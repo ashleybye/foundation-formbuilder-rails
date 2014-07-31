@@ -62,6 +62,7 @@ Currently, I have only completed:
 `collection_radio_buttons`
 `collection_select`
 `grouped_collection_select`
+`select`
 
 # TODO
 
@@ -69,12 +70,6 @@ I have the following left to implement:
 
 ## FormOptionsHelper
 
-`grouped_options_for_select`
-`option_groups_from_collection_for_select`
-`options_for_select`
-`options_from_collection_for_select`
-`select`
-`time_zone_options_for_select`
 `time_zone_select`
 
 ## Under consideration

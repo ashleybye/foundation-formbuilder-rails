@@ -1,8 +1,9 @@
-<%= form_for @city, builder: Zurb::FoundationFormBuilder do |f| %>
+<%= form_for @continent, builder: Zurb::FoundationFormBuilder do |f| %>
 
-  <%= @city.errors.full_messages if @city.errors.any? %>
+  <%= @continent.errors.full_messages if @continent.errors.any? %>
 
-  <%= f.zurb_grouped_collection_select :country_id, @continents, :countries, :name, :id, :name %>
+  <%= f.zurb_select :id, Continent.all.collect { |c| [c.name, c.id] },
+    {include_blank: true, label: {label:"Test"}} %>
 
 
 
