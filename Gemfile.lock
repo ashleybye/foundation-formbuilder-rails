@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/ashleybye/foundation-formbuilder-rails.git
+  revision: 1bfa1cdd3b4e7ad32b7d03dbdcd8ac55e61ef22d
+  branch: develop
+  specs:
+    foundation-formbuilder-rails (0.2.0)
+      foundation-rails (~> 5.3, >= 5.3.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -146,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.4.1)
   coffee-rails (~> 4.0.0)
+  foundation-formbuilder-rails!
   foundation-rails (= 5.3.0.1)
   jbuilder (~> 2.0)
   jquery-rails
