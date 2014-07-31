@@ -7,10 +7,6 @@ module Zurb
   TODO
   =================================================
 
-  ====== FormOptionsHelper =====
-
-  time_zone_select
-
   ????? Pre/Postfix labels (Foundation) ?????
   ????? Switches (Foundation) ?????
   ????? Abide Validation (Foundaation) ?????
@@ -477,7 +473,7 @@ module Zurb
     #          <option value=""></option>
     #          <option value="1">Europe</option>
     #          <option value="2">Asia</option></select>
-    def zurb_select(method, choices = nil, options = { label = {}, field ={} }, html_options = {}, &block)
+    def zurb_select(method, choices = nil, options = { label: {}, field: {} }, html_options = {}, &block)
       set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
       errors = get_field_errors(method)
       add_error_class_to(options) if errors.any?
@@ -503,26 +499,6 @@ module Zurb
       field = @template.label_tag(@object_name,
         "#{options[:label][:label] || method.to_s.humanize}
             #{@template.telephone_field(@object_name, method, options[:field])}".html_safe,
-        options[:label]
-      )
-
-      errors.any? ? add_error_message(field, errors) : field
-    end
-
-    # Returns a time_field with a label wrapped around it and an error label if an error in validation. The
-    # options hash can be used to further customise the label and field, but specific options must be
-    # provided in a hash for that element.
-    #
-    #   f.zurb_time_field :time_field
-    #   # => <label for="test">Time field<input id="test_time_field" name="test[time_field]" type="time"></label>
-    def zurb_time_field(method, options = { label: {}, field: {} }) 
-      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
-      errors = get_field_errors(method)
-      add_error_class_to(options) if errors.any?
-
-      field = @template.label_tag(@object_name,
-        "#{options[:label][:label] || method.to_s.humanize}
-            #{@template.time_field(@object_name, method, options[:field])}".html_safe,
         options[:label]
       )
 
@@ -578,6 +554,39 @@ module Zurb
             #{@template.text_field(@object_name, method, options[:field])}".html_safe,
         options[:label]
       )
+
+      errors.any? ? add_error_message(field, errors) : field
+    end
+
+    # Returns a time_field with a label wrapped around it and an error label if an error in validation. The
+    # options hash can be used to further customise the label and field, but specific options must be
+    # provided in a hash for that element.
+    #
+    #   f.zurb_time_field :time_field
+    #   # => <label for="test">Time field<input id="test_time_field" name="test[time_field]" type="time"></label>
+    def zurb_time_field(method, options = { label: {}, field: {} }) 
+      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name,
+        "#{options[:label][:label] || method.to_s.humanize}
+            #{@template.time_field(@object_name, method, options[:field])}".html_safe,
+        options[:label]
+      )
+
+      errors.any? ? add_error_message(field, errors) : field
+    end
+
+    # Works in exactly the same way as the standard time_zone_select method
+    def zurb_time_zone_select(method, priority_zones = nil, options = { label: {}, field: {} }, html_options = {})
+      set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+      errors = get_field_errors(method)
+      add_error_class_to(options) if errors.any?
+
+      field = @template.label_tag(@object_name, "#{options[:label][:label] || method.to_s.humanize}",
+        options[:label])
+      field << @template.time_zone_select(@object_name, method, priority_zones, options[:field], html_options)
 
       errors.any? ? add_error_message(field, errors) : field
     end

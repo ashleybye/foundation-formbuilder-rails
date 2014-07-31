@@ -10,22 +10,24 @@ for form specifics.
 
 # Getting Started
 
-1.  Copy [foundation_form_builder.rb](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb) into your project,
+1.  Copy [foundation_form_builder.rb](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/zurb/foundation_form_builder.rb) into your project,
 in the following directory:
 
         app/helpers
 
 2.  Ensure you are using the FormBuilder in your form:
 
-        form_for @test, builder: FoundationFormBuilder do |f|
+        form_for @test, builder: Zurb::FoundationFormBuilder do |f|
            ...
         end
 
-3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/foundation_form_builder.rb).
+3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/zurb/foundation_form_builder.rb).
 
 # Complete
 
-Currently, I have only completed:
+I have completed the builder for all of the Rails FormBuilder and FormOptionsHelper
+methods. I have also included some Foundation specific methods, but I may remove these
+before the final release.
 
 ## FormHelper
 
@@ -50,12 +52,6 @@ Currently, I have only completed:
 `url_field`
 `week_field`
 
-## Foundation Specific
-
-(May be removed at a later stage)
-`check_box_group`
-`radio_button_group`
-
 ## FormOptionsHelper
 
 `collection_check_boxes`
@@ -63,16 +59,17 @@ Currently, I have only completed:
 `collection_select`
 `grouped_collection_select`
 `select`
+`time_zone_select`
+
+## Foundation Specific
+
+(May be removed at a later stage)
+`check_box_group`
+`radio_button_group`
 
 # TODO
 
-I have the following left to implement:
-
-## FormOptionsHelper
-
-`time_zone_select`
-
-## Under consideration
+I am still deciding whether it is worth writing builder methods to provide the following:
 
 `Pre/Postfix labels (Foundation)`
 `Switches (Foundation)`
