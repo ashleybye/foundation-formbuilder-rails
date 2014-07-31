@@ -3,6 +3,7 @@ module Foundation
     # module Rails
       module Generators
         class InstallGenerator < ::Rails::Generators::Base
+          desc "This generator creates an initializer file at config/initializers/global_formbuilder.rb"
           source_root File.join(File.dirname(__FILE__), '..', 'templates')
 
           def add_initialiser
