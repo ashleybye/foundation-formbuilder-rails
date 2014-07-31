@@ -1,8 +1,8 @@
-<%= form_for @test, builder: FoundationFormBuilder do |f| %>
+<%= form_for @continent, builder: Zurb::FoundationFormBuilder do |f| %>
 
-  <%= @test.errors.full_messages if @test.errors.any? %>
+  <%= @continent.errors.full_messages if @continent.errors.any? %>
 
-  <%= f.zurb_check_box :text_field %>
+  <%= f.zurb_time_zone_select "name", nil, include_blank: true %>
 
 
 
