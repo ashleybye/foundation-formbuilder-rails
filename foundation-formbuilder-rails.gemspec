@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/ashleybye/foundation-formbuilder-rails"
   spec.license       = "MIT"
 
-  spec.files         = Dir["README.md", "lib/*"]
+  spec.files         = Dir["README.md", "lib/**/*"]
   spec.test_files    = Dir["test/**/*.rb"]
   spec.require_paths = ["lib"]
 
