@@ -10,18 +10,17 @@ for form specifics.
 
 # Getting Started
 
-1.  Copy [foundation_form_builder.rb](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/zurb/foundation_form_builder.rb) into your project,
-in the following directory:
+1.  Add the foundation-formbuilder-rails Gem to your project's `Gemfile`:
 
-        app/helpers
+        gem 'foundation-formbuilder-rails', '0.2.1'
 
 2.  Ensure you are using the FormBuilder in your form:
 
-        form_for @test, builder: Zurb::FoundationFormBuilder do |f|
+        form_for @test, builder: Foundation::FormBuilder::Rails::FormBuilder do |f|
            ...
         end
 
-3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-form-builder/blob/master/app/helpers/zurb/foundation_form_builder.rb).
+3.  For usage, see comments in the [source code](https://github.com/ashleybye/foundation-formbuilder-rails/blob/master/lib/foundation/form_builder/rails/form_builder.rb). I will get around to adding proper use examples to the README in the future.
 
 # Complete
 
