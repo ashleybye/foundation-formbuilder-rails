@@ -2,7 +2,7 @@
 
   <%= @test.errors.full_messages if @test.errors.any? %>
 
-  <%= f.zurb_collection_radio_buttons(:text_field, Field.all, :id, :name) %>
+  <%= f.zurb_collection_select(:text_field, Field.all, :id, :name) %>
 
 
 
