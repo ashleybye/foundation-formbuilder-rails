@@ -2,8 +2,7 @@
 
   <%= @continent.errors.full_messages if @continent.errors.any? %>
 
-  <%= f.zurb_select :id, Continent.all.collect { |c| [c.name, c.id] },
-    {include_blank: true, label: {label:"Test"}} %>
+  <%= f.zurb_time_zone_select "name", nil, include_blank: true %>
 
 
 
