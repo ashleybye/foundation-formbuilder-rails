@@ -1,8 +1,10 @@
-<%= form_for @test, builder: FoundationFormBuilder do |f| %>
+<%= form_for @test, builder: Zurb::FoundationFormBuilder do |f| %>
 
   <%= @test.errors.full_messages if @test.errors.any? %>
 
-  <%= f.zurb_check_box_group :text_field, { yes: [true, false], no: [false, true] }, [:yes] %>
+  <%= f.zurb_collection_check_boxes(:text_field, Field.all, :id, :name) do |b|
+    b.label(:"data-value" => b.value) { b.check_box + b.text }
+    end%>
 
 
 
