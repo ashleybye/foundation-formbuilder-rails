@@ -1,4 +1,4 @@
-# foundation-formbuilder-rails v0.2.1
+# foundation-formbuilder-rails v0.2.2
 
 This is a custom FormBuilder used to display form elements generated
 by the form_for helpers in the correct style for
@@ -12,7 +12,7 @@ for form specifics.
 
 1.  Add the foundation-formbuilder-rails Gem to your project's `Gemfile`:
 
-        gem 'foundation-formbuilder-rails', '0.2.1'
+        gem 'foundation-formbuilder-rails'
 
 2.  Ensure you are using the FormBuilder in your form:
 
