@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'foundation-rails', '5.3.0.1'
+gem 'foundation-formbuilder-rails', git: 'https://github.com/ashleybye/foundation-formbuilder-rails.git', branch: 'develop'
 
 
 gem 'sqlite3'
