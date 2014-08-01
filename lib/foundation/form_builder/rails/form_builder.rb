@@ -551,8 +551,6 @@ module Foundation
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
 
-          object.errors = nil
-
           field = @template.label_tag(@object_name,
             "#{options[:label][:label] || method.to_s.humanize}
                 #{@template.text_field(@object_name, method, options[:field])}".html_safe,
@@ -645,9 +643,9 @@ module Foundation
 
           # Return any errors for the field we are working with
           def get_field_errors(method)
-            # If we have any errors, assign them to our variable then remove them from Rails
+            # If we have any errors, return them and delete them from Rails
             # default object to prevent <div></div> inside <label></label>
-            get_field_errors(method)
+            options.errors.delete(method)
           end
 
           # Return a class attribute containing the css error class for the label
