@@ -645,7 +645,7 @@ module Foundation
           def get_field_errors(method)
             # If we have any errors, return them and delete them from Rails
             # default object to prevent <div></div> inside <label></label>
-            errors = object.errors[method]
+            errors = object.errors[method].clone
             object.errors[method].count.times { object.errors[method].delete_at(0) }
             errors
           end
