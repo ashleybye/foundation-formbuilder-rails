@@ -548,8 +548,9 @@ module Foundation
         #       <input id="test_text_field" name="test[text_field]" placeholder="Text here" type="text"></label>
         def zurb_text_field(method, options = { label: {}, field: {} }) 
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
+          @errors = object.errors
           errors = get_field_errors(method)
-          add_error_class_to(options) if errors.any?
+          add_error_class_to(options) if @errors.any?
 
           field = @template.label_tag(@object_name,
             "#{options[:label][:label] || method.to_s.humanize}
@@ -645,9 +646,7 @@ module Foundation
           def get_field_errors(method)
             # If we have any errors, assign them to our variable then remove them from Rails
             # default object to prevent <div></div> inside <label></label>
-            errors = object.errors[method]
-            object.errors[method] = nil
-            errors
+            @errors[method]
           end
 
           # Return a class attribute containing the css error class for the label
