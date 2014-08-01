@@ -551,15 +551,6 @@ module Foundation
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
 
-          puts "Object class:"
-          puts object.class
-          puts ""
-          puts "Object methods:"
-          puts object.class.methods
-          puts ""
-          puts "Object:"
-          puts object
-
           field = @template.label_tag(@object_name,
             "#{options[:label][:label] || method.to_s.humanize}
                 #{@template.text_field(@object_name, method, options[:field])}".html_safe,
@@ -652,7 +643,7 @@ module Foundation
 
           # Return any errors for the field we are working with
           def get_field_errors(method)
-            object.errors[method]
+            object.errors[method] && object.errors[method] = nil
           end
 
           # Return a class attribute containing the css error class for the label
