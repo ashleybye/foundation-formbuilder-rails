@@ -557,9 +557,9 @@ module Foundation
             options[:label]
           )
 
-          logger.debug("Object class: #{@object_name.class}")
-          logger.debug("Object methods: #{@object_name.class.methods}")
-          logger.debug("Object: #{@object_name}")
+          Rails.logger.debug("Object class: #{@object_name.class}")
+          Rails.logger.debug("Object methods: #{@object_name.class.methods}")
+          Rails.logger.debug("Object: #{@object_name}")
 
           errors.any? ? add_error_message(field, errors) : field
         end
