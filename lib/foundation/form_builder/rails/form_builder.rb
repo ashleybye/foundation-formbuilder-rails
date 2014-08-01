@@ -643,8 +643,11 @@ module Foundation
 
           # Return any errors for the field we are working with
           def get_field_errors(method)
-            puts object.errors[method]
-            object.errors[method]
+            # If we have any errors, assign them to our variable then remove them from Rails
+            # default object to prevent <div></div> inside <label></label>
+            errors = object.errors[method]
+            object.errors[method] = nil
+            errors
           end
 
           # Return a class attribute containing the css error class for the label
