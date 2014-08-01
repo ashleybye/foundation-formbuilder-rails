@@ -643,7 +643,8 @@ module Foundation
 
           # Return any errors for the field we are working with
           def get_field_errors(method)
-            object.errors[method] && object.errors[method] = nil
+            puts object.errors[method]
+            object.errors[method]
           end
 
           # Return a class attribute containing the css error class for the label
