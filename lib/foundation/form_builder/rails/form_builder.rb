@@ -552,13 +552,13 @@ module Foundation
           add_error_class_to(options) if errors.any?
 
           puts "Object class:"
-          puts @object_name.class
+          puts object.class
           puts ""
           puts "Object methods:"
-          puts @object_name.class.methods
+          puts object.class.methods
           puts ""
           puts "Object:"
-          puts @object_name
+          puts object
 
           field = @template.label_tag(@object_name,
             "#{options[:label][:label] || method.to_s.humanize}
