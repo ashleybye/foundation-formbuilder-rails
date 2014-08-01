@@ -561,7 +561,7 @@ module Foundation
           puts
           puts "Object methods: #{@object_name.class.methods}"
           puts
-          "Object: #{debug @object_name}"
+          puts "Object: #{@object_name}"
 
           errors.any? ? add_error_message(field, errors) : field
         end
