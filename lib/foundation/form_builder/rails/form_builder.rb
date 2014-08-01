@@ -646,7 +646,7 @@ module Foundation
             # If we have any errors, return them and delete them from Rails
             # default object to prevent <div></div> inside <label></label>
             errors = object.errors[method]
-            object.errors[method].each { |i| object.errors[method].delete(i) }
+            object.errors[method].count.times { object.errors[method].delete_at(0) }
             errors
           end
 
