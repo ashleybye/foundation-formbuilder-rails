@@ -551,17 +551,20 @@ module Foundation
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
 
+          puts "Object class:"
+          puts @object_name.class
+          puts ""
+          puts "Object methods:"
+          puts @object_name.class.methods
+          puts ""
+          puts "Object:"
+          puts @object_name
+
           field = @template.label_tag(@object_name,
             "#{options[:label][:label] || method.to_s.humanize}
                 #{@template.text_field(@object_name, method, options[:field])}".html_safe,
             options[:label]
           )
-
-          puts "Object class: #{@object_name.class}"
-          puts
-          puts "Object methods: #{@object_name.class.methods}"
-          puts
-          puts "Object: #{@object_name}"
 
           errors.any? ? add_error_message(field, errors) : field
         end
