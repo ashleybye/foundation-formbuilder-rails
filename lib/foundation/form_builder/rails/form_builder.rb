@@ -557,6 +557,8 @@ module Foundation
             options[:label]
           )
 
+          p options
+
           errors.any? ? add_error_message(field, errors) : field
         end
 
