@@ -645,7 +645,9 @@ module Foundation
           def get_field_errors(method)
             # If we have any errors, return them and delete them from Rails
             # default object to prevent <div></div> inside <label></label>
-            object.errors.delete(method)
+            errors = object.errors[method]
+            object.errors[method].each { |i| object.errors[method].delete(i) }
+            errors
           end
 
           # Return a class attribute containing the css error class for the label
