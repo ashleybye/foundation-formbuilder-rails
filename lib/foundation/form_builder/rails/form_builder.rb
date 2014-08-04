@@ -95,7 +95,7 @@ module Foundation
         end
 
         # Works in exactly the same way as the standard collection_check_boxes method
-        def zurb_collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block) 
+        def zurb_collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -109,7 +109,7 @@ module Foundation
         end
 
         # Works in exactly the same way as the standard collection_radio_buttons method
-        def zurb_collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block) 
+        def zurb_collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -123,7 +123,7 @@ module Foundation
         end
 
         # Works in exactly the same way as the standard collection_radio_buttons method
-        def zurb_collection_select(method, collection, value_method, text_method, options = {}, html_options = {}) 
+        def zurb_collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -142,7 +142,7 @@ module Foundation
         #
         #   f.zurb_color_field :color_field
         #   # => <label for="test">Color field<input id="test_color_field" name="test[color_field]" type="color"></label>
-        def zurb_color_field(method, options = { label: {}, field: {} }) 
+        def zurb_color_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -162,7 +162,7 @@ module Foundation
         #
         #   f.zurb_date_field :date_field
         #   # => <label for="test">Date field<input id="test_date_field" name="test[date_field]" type="date"></label>
-        def zurb_date_field(method, options = { label: {}, field: {} }) 
+        def zurb_date_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -183,7 +183,7 @@ module Foundation
         #   f.zurb_datetime_field :datetime_field
         #   # => <label for="test">Datetime field<input id="test_datetime_field" name="test[datetime_field]"
         #         type="datetime"></label>
-        def zurb_datetime_field(method, options = { label: {}, field: {} }) 
+        def zurb_datetime_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -204,7 +204,7 @@ module Foundation
         #   f.zurb_datetime_local_field :datetime_local_field
         #   # => <label for="test">Datetime local field<input id="test_datetime_local_field"
         #   name="test[datetime_local_field]" type="datetime-local"></label>
-        def zurb_datetime_local_field(method, options = { label: {}, field: {} }) 
+        def zurb_datetime_local_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -225,7 +225,7 @@ module Foundation
         #   f.zurb_email_field :email_field
         #   # => <label for="test">Email field<input id="test_email_field" name="test[email_field]"
         #         type="email"></label>
-        def zurb_email_field(method, options = { label: {}, field: {} }) 
+        def zurb_email_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -245,7 +245,7 @@ module Foundation
         #
         #   f.zurb_file_field :file_field
         #   # => <label for="test">File field<input id="test_file_field" name="test[file_field]" type="file"></label>
-        def zurb_file_field(method, options = { label: {}, field: {} }) 
+        def zurb_file_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -284,7 +284,7 @@ module Foundation
         #
         #   f.zurb_month_field :month_field
         #   # => <label for="test">Month field<input id="test_month_field" name="test[month_field]" type="month"></label>
-        def zurb_month_field(method, options = { label: {}, field: {} }) 
+        def zurb_month_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -304,7 +304,7 @@ module Foundation
         #
         #   f.zurb_number_field :number_field
         #   # => <label for="test">Number field<input id="test_number_field" name="test[number_field]" type="number"></label>
-        def zurb_number_field(method, options = { label: {}, field: {} }) 
+        def zurb_number_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -325,7 +325,7 @@ module Foundation
         #   f.zurb_password_field :password_field
         #   # => <label for="test">Password field
         #       <input id="test_password_field" name="test[password_field]" type="password"></label>
-        def zurb_password_field(method, options = { label: {}, field: {} }) 
+        def zurb_password_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -345,7 +345,7 @@ module Foundation
         #
         #   f.zurb_phone_field :phone_field
         #   # => <label for="test">Phone field<input id="test_phone_field" name="test[phone_field]" type="phone"></label>
-        def zurb_phone_field(method, options = { label: {}, field: {} }) 
+        def zurb_phone_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -433,7 +433,7 @@ module Foundation
         #
         #   f.zurb_range_field :range_field
         #   # => <label for="test">Range field<input id="test_range_field" name="test[range_field]" type="range"></label>
-        def zurb_range_field(method, options = { label: {}, field: {} }) 
+        def zurb_range_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -453,7 +453,7 @@ module Foundation
         #
         #   f.zurb_search_field :search_field
         #   # => <label for="test">Search field<input id="test_search_field" name="test[search_field]" type="search"></label>
-        def zurb_search_field(method, options = { label: {}, field: {} }) 
+        def zurb_search_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -493,7 +493,7 @@ module Foundation
         #
         #   f.zurb_telephone_field :telephone_field
         #   # => <label for="test">Telephone field<input id="test_telephone_field" name="test[telephone_field]" type="telephone"></label>
-        def zurb_telephone_field(method, options = { label: {}, field: {} }) 
+        def zurb_telephone_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -514,7 +514,7 @@ module Foundation
         #   f.zurb_text_area :text_area, field: { rows: 5 }
         #   # => <label for="test">Text area
         #       <textarea id="test_text_area" name="test[text_area]" rows="5"></textarea></label>
-        def zurb_text_area(method, options = { label: {}, field: {} }) 
+        def zurb_text_area(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -546,7 +546,7 @@ module Foundation
         #   f.zurb_text_field :text_field, label: { class: "some-class" }, field: { placeholder: "Text here" }
         #   # => <label class="some-class" for="test">Text field
         #       <input id="test_text_field" name="test[text_field]" placeholder="Text here" type="text"></label>
-        def zurb_text_field(method, options = { label: {}, field: {} }) 
+        def zurb_text_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -566,7 +566,7 @@ module Foundation
         #
         #   f.zurb_time_field :time_field
         #   # => <label for="test">Time field<input id="test_time_field" name="test[time_field]" type="time"></label>
-        def zurb_time_field(method, options = { label: {}, field: {} }) 
+        def zurb_time_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -599,7 +599,7 @@ module Foundation
         #
         #   f.zurb_url_field :url_field
         #   # => <label for="test">Url field<input id="test_url_field" name="test[url_field]" type="url"></label>
-        def zurb_url_field(method, options = { label: {}, field: {} }) 
+        def zurb_url_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
@@ -619,7 +619,7 @@ module Foundation
         #
         #   f.zurb_week_field :week_field
         #   # => <label for="test">Week field<input id="test_week_field" name="test[week_field]" type="week"></label>
-        def zurb_week_field(method, options = { label: {}, field: {} }) 
+        def zurb_week_field(method, options = { label: {}, field: {} })
           set_options(options)  # If only :field set throws error when accessing :label, and vice versa.
           errors = get_field_errors(method)
           add_error_class_to(options) if errors.any?
